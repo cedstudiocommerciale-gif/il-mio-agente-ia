@@ -20,7 +20,7 @@ class RichiestaUtente(BaseModel):
 async def rispondi_al_messaggio(richiesta: RichiestaUtente):
     try:
         response = client.models.generate_content(
-            model='gemini-3.1-pro-latest,
+           model='gemini-3.1-pro-latest',
             contents=richiesta.messaggio,
             config=types.GenerateContentConfig(
                 system_instruction="Sei un assistente IA personale centralizzato sul cloud.",
