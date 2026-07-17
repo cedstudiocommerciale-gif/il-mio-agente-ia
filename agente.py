@@ -22,9 +22,10 @@ async def rispondi_al_messaggio(richiesta: RichiestaUtente):
         response = client.models.generate_content(
            model='gemini-3.5-flash',
             contents=richiesta.messaggio,
-            config=types.GenerateContentConfig(
-                system_instruction="Sei un assistente IA personale centralizzato sul cloud.",
+           config=types.GenerateContentConfig(
+                system_instruction="Sei l'Agente IA principale di un software gestionale e contabile. Il tuo scopo è aiutare l'utente con fatturazione, calcoli IVA, bilanci, normative fiscali e gestione aziendale. Rispondi in modo rigoroso, professionale e analitico. Rifiutati cortesemente di rispondere a domande non pertinenti all'ambito economico o contabile.",
                 temperature=0.7,
+            )
             )
         )
         return {"risposta_agente": response.text}
